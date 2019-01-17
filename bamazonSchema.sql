@@ -13,14 +13,14 @@ CREATE TABLE products(
 );
 
 INSERT INTO products(product,department,price,stock)
-VALUES ("Shampoo","Hair Care",10,10),
-  ("Conditioner","Hair Care",12,5),
+VALUES ("Shampoo","Hair Care",10.49,10),
+  ("Conditioner","Hair Care",12.95,5),
   ("Dirt","Garden",8,12),
-  ("Shovel","Garden",25,3),
+  ("Shovel","Garden",24.99,3),
   ("Post-it Notes","Office",5,5),
   ("Paper Clips","Office",1,100),
-  ("Twizlers","Grocery",1,50),
+  ("Twizzlers","Grocery",1,50),
   ("Coke","Grocery",2,200),
-  ("Hammer","Hardware",15,15),
-  ("Screwdriver","Hardware",8,10);
+  ("Hammer","Hardware",9.99,15),
+  ("Screwdriver","Hardware",5.99,10);
 

@@ -16,32 +16,32 @@ connection.connect(function(error){
 })
 
 var drawTable = function(){
-  connection.query("SELECT * FROM products", function(error,result){
-  console.table(result);
-  promptCustomer(result);
+  connection.query("SELECT * FROM products", function(error,productTable){
+  console.table(productTable);
+  promptCustomer(productTable);
   })
 }
 
-var promptCustomer = function(result){
+var promptCustomer = function(productTable){
   inquirer.prompt([{
     type:"input",
     name:"choice",
     message:"Enter item name or QUIT to exit",
     validate: function(value){
-      for(i=0;i<result.length;i++){
-        if(result[i].product.toLowerCase()==value.toLowerCase() || (value == 'QUIT')){
+      for(i=0;i<productTable.length;i++){
+        if(productTable[i].product.toLowerCase()==value.toLowerCase() || (value == 'QUIT')){
           return true;
-        } 
-      }        
+        }
+      }
     }
-  }]).then(function(result2){
-    if(result2.choice == 'QUIT') {
+  }]).then(function(searchTerm){
+    if(searchTerm.choice == 'QUIT') {
       console.log(' > QUITTER');
       process.exit();
     }
     var id = '';
-    for(i=0;i<result.length;i++){
-      if(result[i].product.toLowerCase()==result2.choice.toLowerCase()){
+    for(i=0;i<productTable.length;i++){
+      if(productTable[i].product.toLowerCase()==searchTerm.choice.toLowerCase()){
         id = i;
       }
     }   
@@ -50,20 +50,20 @@ var promptCustomer = function(result){
       name:"quantity",
       message:"How many do you wish to purchase?",
       validate: function(value){
-        if(isNaN(value) == false && (result[id].stock - value) >= 0) {
+        if(isNaN(value) == false && (productTable[id].stock - value) >= 0) {
           return true;
         } else {
           if(isNaN(value)){
             console.log('\n > Not a valid number');
           } else {
-            console.log('\n > Insufficient stock remaining, quantity cannot be great than ' + result[id].stock);
+            console.log('\n > Insufficient stock remaining, quantity cannot be great than ' + productTable[id].stock);
           }
           return false;
         }
       }
     }]).then(function(answer){
-      connection.query("UPDATE products SET stock='" + (result[id].stock - answer.quantity) +"' WHERE product='" + result[id].product + "'", function(error,response) {
-        console.log("\n You have purchased " + answer.quantity + " " + result[id].product + " for a total of $" + (answer.quantity * result[id].price).toFixed(2));
+      connection.query("UPDATE products SET stock='" + (productTable[id].stock - answer.quantity) +"' WHERE product='" + productTable[id].product + "'", function(error,response) {
+        console.log("\n You have purchased " + answer.quantity + " " + productTable[id].product + " for a total of $" + (answer.quantity * productTable[id].price).toFixed(2));
         drawTable();
       })
     })    
