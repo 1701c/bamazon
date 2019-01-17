@@ -17,8 +17,8 @@ connection.connect(function(error){
 
 var drawTable = function(){
   connection.query("SELECT * FROM products", function(error,productTable){
-  console.table(productTable);
-  promptCustomer(productTable);
+    console.table(productTable);
+    promptCustomer(productTable);
   })
 }
 
@@ -50,13 +50,13 @@ var promptCustomer = function(productTable){
       name:"quantity",
       message:"How many do you wish to purchase?",
       validate: function(value){
-        if(isNaN(value) == false && (productTable[id].stock - value) >= 0) {
+        if( isNaN(value) == false && (productTable[id].stock - value) >= 0 && (value >= 0) ) {
           return true;
         } else {
           if(isNaN(value)){
             console.log('\n > Not a valid number');
           } else {
-            console.log('\n > Insufficient stock remaining, quantity cannot be great than ' + productTable[id].stock);
+            console.log('\n > Invalid amount, quantity must be between 0 and ' + productTable[id].stock);
           }
           return false;
         }
