@@ -1,19 +1,12 @@
-var mysql = require("mysql");
 var inquirer = require("inquirer");
+var connection = require("./config/connection.js");
 
-var connection = mysql.createConnection({
-  host:"localhost",
-  port:3306,
-  user:"root",
-  password:"root",
-  database:"bamazon_DB"
-})
-
-connection.connect(function(error){
-  if (error) throw error;
-  console.log("Connection Successful");
-  managerPrompt();
-})
+var drawTable = function(){
+  connection.query("SELECT product, department, price, stock FROM products", function(error,productTable){
+    console.table(productTable);
+    managerPrompt();
+  })
+}
 
 var managerPrompt = function(){
   inquirer.prompt([{
@@ -48,21 +41,21 @@ var managerPrompt = function(){
 }
 
 var drawTable = function(){
-  connection.query("SELECT * FROM products", function(error,productTable){
+  connection.query("SELECT product, department, price, stock FROM products", function(error,productTable){
     console.table(productTable);
     managerPrompt();
   })
 }
 
 var drawLowInventory = function(){
-  connection.query("SELECT * FROM products WHERE stock<=10", function(error,productTable){
+  connection.query("SELECT product, department, price, stock FROM products WHERE stock<=10", function(error,productTable){
     console.table(productTable);
     managerPrompt();
   })
 }
 
 var addToInventory = function(){
-  connection.query("SELECT * FROM products", function(error,productTable){
+  connection.query("SELECT product, department, price, stock FROM products", function(error,productTable){
     console.table(productTable);
     inquirer.prompt([{
       type:"input",
@@ -169,10 +162,8 @@ var addNewProduct = function(){
         name:"confirm",
         message:"Ready to Add.  Press Y to confirm, any other key to cancel",
       }]).then(function(updatePrompt){
-        // console.log(updatePrompt.confirm);
-        //console.log("INSERT INTO products(product,department,price,stock) VALUES ('" + newProduct.name + "','" + newProduct.department + "'," + newProduct.price + "," + newProduct.stock + ")");
         if (updatePrompt.confirm.toLowerCase() == 'y') {
-          connection.query("INSERT INTO products(product,department,price,stock) VALUES ('" + newProduct.name + "','" + newProduct.department + "'," + newProduct.price + "," + newProduct.stock + ")", function(error,response) {
+          connection.query("INSERT INTO products(product,department,price,stock,sales) VALUES ('" + newProduct.name + "','" + newProduct.department + "'," + newProduct.price + "," + newProduct.stock + "," + 0 + ")", function(error,response) {
             console.log(" > New product added successfully");
             managerPrompt();
           })
@@ -183,3 +174,5 @@ var addNewProduct = function(){
     })
   })    
 }
+
+drawTable();

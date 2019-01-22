@@ -1,22 +1,8 @@
-var mysql = require("mysql");
 var inquirer = require("inquirer");
-
-var connection = mysql.createConnection({
-  host:"localhost",
-  port:3306,
-  user:"root",
-  password:"root",
-  database:"bamazon_DB"
-})
-
-connection.connect(function(error){
-  if (error) throw error;
-  console.log("Connection Successful");
-  drawTable();
-})
+var connection = require("./config/connection.js")
 
 var drawTable = function(){
-  connection.query("SELECT * FROM products", function(error,productTable){
+  connection.query("SELECT product, department, price, stock FROM products", function(error,productTable){
     console.table(productTable);
     promptCustomer(productTable);
   })
@@ -62,10 +48,14 @@ var promptCustomer = function(productTable){
         }
       }
     }]).then(function(answer){
-      connection.query("UPDATE products SET stock='" + (productTable[id].stock - answer.quantity) +"' WHERE product='" + productTable[id].product + "'", function(error,response) {
-        console.log("\n You have purchased " + answer.quantity + " " + productTable[id].product + " for a total of $" + (answer.quantity * productTable[id].price).toFixed(2));
-        drawTable();
+      connection.query("SELECT * FROM products", function(error,productTable){
+        connection.query("UPDATE products SET stock='" + (productTable[id].stock - answer.quantity) +"', sales='" + (productTable[id].sales + (productTable[id].price * answer.quantity)) + "' WHERE product='" + productTable[id].product + "'", function(error,response) {
+          console.log("\n You have purchased " + answer.quantity + " " + productTable[id].product + " for a total of $" + (answer.quantity * productTable[id].price).toFixed(2));
+          drawTable();
+        })
       })
     })    
   })
 }
+
+drawTable();
