@@ -20,7 +20,7 @@ var managerPrompt = function(){
       }
     }
   }]).then(function(menuSelection){
-    switch(menuSelection.choice){
+    switch(menuSelection.choice.toLowerCase()){
       case 'p': 
         drawTable();
         break;
@@ -106,11 +106,7 @@ var addToInventory = function(){
 }
 
 var addNewProduct = function(){
-  // var product = '';
-  // var department = '';
-  // var price;
   connection.query("SELECT * FROM products", function(error,productTable){
-    // console.log('POP');
 
     inquirer.prompt([
       {

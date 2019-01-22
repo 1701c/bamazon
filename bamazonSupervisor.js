@@ -19,7 +19,7 @@ var supervisorPrompt = function(){
       }
     }
   }]).then(function(menuSelection){
-    switch(menuSelection.choice){
+    switch(menuSelection.choice.toLowerCase()){
       case 's': 
         salesByDept();
         break;
@@ -51,7 +51,6 @@ var addNewDepartment = function(){
       message:"Enter new department name",
       validate: function(value){
         for(i=0;i<departmentTable.length;i++){
-          console.log(departmentTable[i].department_name.toLowerCase());
           if(departmentTable[i].department_name.toLowerCase()==value.toLowerCase()){
             console.log('\n > Department already exists');
             return false;
@@ -73,6 +72,7 @@ var addNewDepartment = function(){
           })
         } else {
           console.log(' > Nothing added to database');
+          supervisorPrompt();
         }
       })    
     })

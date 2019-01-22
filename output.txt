@@ -1,0 +1,254 @@
+magnus:bamazon alex$ node bamazonSupervisor.js 
+connected as id 53
+┌─────────┬─────────────────┬─────────────┬───────┬───────┐
+│ (index) │     product     │ department  │ price │ stock │
+├─────────┼─────────────────┼─────────────┼───────┼───────┤
+│    0    │    'Shampoo'    │ 'Hair Care' │ 10.49 │  10   │
+│    1    │  'Conditioner'  │ 'Hair Care' │ 12.95 │   5   │
+│    2    │     'Dirt'      │  'Garden'   │   8   │  12   │
+│    3    │    'Shovel'     │  'Garden'   │ 24.99 │   3   │
+│    4    │ 'Post-it Notes' │  'Office'   │   5   │   5   │
+│    5    │  'Paper Clips'  │  'Office'   │   1   │  100  │
+│    6    │   'Twizzlers'   │  'Grocery'  │   1   │  50   │
+│    7    │     'Coke'      │  'Grocery'  │   2   │  200  │
+│    8    │    'Hammer'     │ 'Hardware'  │ 9.99  │  15   │
+│    9    │  'Screwdriver'  │ 'Hardware'  │ 5.99  │  10   │
+└─────────┴─────────────────┴─────────────┴───────┴───────┘
+? (S)ales by Department
+  (A)dd new Department
+  QUIT to exit s
+┌─────────┬───────────────┬─────────────┬───────┬────────────────┬────────┐
+│ (index) │ department_id │ department  │ sales │ overhead_costs │ profit │
+├─────────┼───────────────┼─────────────┼───────┼────────────────┼────────┤
+│    0    │       1       │ 'Hair Care' │   0   │     10000      │ -10000 │
+│    1    │       2       │  'Garden'   │   0   │      5000      │ -5000  │
+│    2    │       3       │  'Office'   │   0   │      1200      │ -1200  │
+│    3    │       4       │  'Grocery'  │   0   │      900       │  -900  │
+│    4    │       5       │ 'Hardware'  │   0   │      500       │  -500  │
+└─────────┴───────────────┴─────────────┴───────┴────────────────┴────────┘
+? (S)ales by Department
+  (A)dd new Department
+  QUIT to exit a
+┌─────────┬───────────────┬─────────────────┬────────────────┐
+│ (index) │ department_id │ department_name │ overhead_costs │
+├─────────┼───────────────┼─────────────────┼────────────────┤
+│    0    │       1       │   'Hair Care'   │     10000      │
+│    1    │       2       │    'Garden'     │      5000      │
+│    2    │       3       │    'Office'     │      1200      │
+│    3    │       4       │    'Grocery'    │      900       │
+│    4    │       5       │   'Hardware'    │      500       │
+└─────────┴───────────────┴─────────────────┴────────────────┘
+? Enter new department name Clothing
+┌─────────┬────────────┐
+│ (index) │   Values   │
+├─────────┼────────────┤
+│  name   │ 'Clothing' │
+└─────────┴────────────┘
+? Ready to Add.  Press Y to confirm, any other key to cancel y
+ > New Deparment added successfully
+? (S)ales by Department
+  (A)dd new Department
+  QUIT to exit 
+magnus:bamazon alex$ node bamazonManager.js 
+connected as id 54
+┌─────────┬─────────────────┬─────────────┬───────┬───────┐
+│ (index) │     product     │ department  │ price │ stock │
+├─────────┼─────────────────┼─────────────┼───────┼───────┤
+│    0    │    'Shampoo'    │ 'Hair Care' │ 10.49 │  10   │
+│    1    │  'Conditioner'  │ 'Hair Care' │ 12.95 │   5   │
+│    2    │     'Dirt'      │  'Garden'   │   8   │  12   │
+│    3    │    'Shovel'     │  'Garden'   │ 24.99 │   3   │
+│    4    │ 'Post-it Notes' │  'Office'   │   5   │   5   │
+│    5    │  'Paper Clips'  │  'Office'   │   1   │  100  │
+│    6    │   'Twizzlers'   │  'Grocery'  │   1   │  50   │
+│    7    │     'Coke'      │  'Grocery'  │   2   │  200  │
+│    8    │    'Hammer'     │ 'Hardware'  │ 9.99  │  15   │
+│    9    │  'Screwdriver'  │ 'Hardware'  │ 5.99  │  10   │
+└─────────┴─────────────────┴─────────────┴───────┴───────┘
+? (P)roducts
+  (L)ow Inventory
+  (A)dd Inventory
+  (N)ew Product
+  QUIT to exit p
+┌─────────┬─────────────────┬─────────────┬───────┬───────┐
+│ (index) │     product     │ department  │ price │ stock │
+├─────────┼─────────────────┼─────────────┼───────┼───────┤
+│    0    │    'Shampoo'    │ 'Hair Care' │ 10.49 │  10   │
+│    1    │  'Conditioner'  │ 'Hair Care' │ 12.95 │   5   │
+│    2    │     'Dirt'      │  'Garden'   │   8   │  12   │
+│    3    │    'Shovel'     │  'Garden'   │ 24.99 │   3   │
+│    4    │ 'Post-it Notes' │  'Office'   │   5   │   5   │
+│    5    │  'Paper Clips'  │  'Office'   │   1   │  100  │
+│    6    │   'Twizzlers'   │  'Grocery'  │   1   │  50   │
+│    7    │     'Coke'      │  'Grocery'  │   2   │  200  │
+│    8    │    'Hammer'     │ 'Hardware'  │ 9.99  │  15   │
+│    9    │  'Screwdriver'  │ 'Hardware'  │ 5.99  │  10   │
+└─────────┴─────────────────┴─────────────┴───────┴───────┘
+? (P)roducts
+  (L)ow Inventory
+  (A)dd Inventory
+  (N)ew Product
+  QUIT to exit l
+┌─────────┬─────────────────┬─────────────┬───────┬───────┐
+│ (index) │     product     │ department  │ price │ stock │
+├─────────┼─────────────────┼─────────────┼───────┼───────┤
+│    0    │    'Shampoo'    │ 'Hair Care' │ 10.49 │  10   │
+│    1    │  'Conditioner'  │ 'Hair Care' │ 12.95 │   5   │
+│    2    │    'Shovel'     │  'Garden'   │ 24.99 │   3   │
+│    3    │ 'Post-it Notes' │  'Office'   │   5   │   5   │
+│    4    │  'Screwdriver'  │ 'Hardware'  │ 5.99  │  10   │
+└─────────┴─────────────────┴─────────────┴───────┴───────┘
+? (P)roducts
+  (L)ow Inventory
+  (A)dd Inventory
+  (N)ew Product
+  QUIT to exit a
+┌─────────┬─────────────────┬─────────────┬───────┬───────┐
+│ (index) │     product     │ department  │ price │ stock │
+├─────────┼─────────────────┼─────────────┼───────┼───────┤
+│    0    │    'Shampoo'    │ 'Hair Care' │ 10.49 │  10   │
+│    1    │  'Conditioner'  │ 'Hair Care' │ 12.95 │   5   │
+│    2    │     'Dirt'      │  'Garden'   │   8   │  12   │
+│    3    │    'Shovel'     │  'Garden'   │ 24.99 │   3   │
+│    4    │ 'Post-it Notes' │  'Office'   │   5   │   5   │
+│    5    │  'Paper Clips'  │  'Office'   │   1   │  100  │
+│    6    │   'Twizzlers'   │  'Grocery'  │   1   │  50   │
+│    7    │     'Coke'      │  'Grocery'  │   2   │  200  │
+│    8    │    'Hammer'     │ 'Hardware'  │ 9.99  │  15   │
+│    9    │  'Screwdriver'  │ 'Hardware'  │ 5.99  │  10   │
+└─────────┴─────────────────┴─────────────┴───────┴───────┘
+? Enter item name or QUIT to exit cokehello
+? Enter item name or QUIT to exit coke
+? How many do you wish to add? 2000
+
+ You have added 2000 Coke for a total of 400000
+┌─────────┬─────────────────┬─────────────┬───────┬───────┐
+│ (index) │     product     │ department  │ price │ stock │
+├─────────┼─────────────────┼─────────────┼───────┼───────┤
+│    0    │    'Shampoo'    │ 'Hair Care' │ 10.49 │  10   │
+│    1    │  'Conditioner'  │ 'Hair Care' │ 12.95 │   5   │
+│    2    │     'Dirt'      │  'Garden'   │   8   │  12   │
+│    3    │    'Shovel'     │  'Garden'   │ 24.99 │   3   │
+│    4    │ 'Post-it Notes' │  'Office'   │   5   │   5   │
+│    5    │  'Paper Clips'  │  'Office'   │   1   │  100  │
+│    6    │   'Twizzlers'   │  'Grocery'  │   1   │  50   │
+│    7    │     'Coke'      │  'Grocery'  │   2   │ 2200  │
+│    8    │    'Hammer'     │ 'Hardware'  │ 9.99  │  15   │
+│    9    │  'Screwdriver'  │ 'Hardware'  │ 5.99  │  10   │
+└─────────┴─────────────────┴─────────────┴───────┴───────┘
+? (P)roducts
+  (L)ow Inventory
+  (A)dd Inventory
+  (N)ew Product
+  QUIT to exit n
+? Enter new item name Ballcap
+? Enter department Clothing
+? Enter price per unit 12
+? Enter quantity 1000
+┌────────────┬────────────┐
+│  (index)   │   Values   │
+├────────────┼────────────┤
+│    name    │ 'Ballcap'  │
+│ department │ 'Clothing' │
+│   price    │    '12'    │
+│   stock    │   '1000'   │
+└────────────┴────────────┘
+? Ready to Add.  Press Y to confirm, any other key to cancel y
+ > New product added successfully
+? (P)roducts
+  (L)ow Inventory
+  (A)dd Inventory
+  (N)ew Product
+  QUIT to exit QUIT
+^C
+magnus:bamazon alex$ node bamazonCustomer.js 
+connected as id 55
+┌─────────┬─────────────────┬─────────────┬───────┬───────┐
+│ (index) │     product     │ department  │ price │ stock │
+├─────────┼─────────────────┼─────────────┼───────┼───────┤
+│    0    │    'Shampoo'    │ 'Hair Care' │ 10.49 │  10   │
+│    1    │  'Conditioner'  │ 'Hair Care' │ 12.95 │   5   │
+│    2    │     'Dirt'      │  'Garden'   │   8   │  12   │
+│    3    │    'Shovel'     │  'Garden'   │ 24.99 │   3   │
+│    4    │ 'Post-it Notes' │  'Office'   │   5   │   5   │
+│    5    │  'Paper Clips'  │  'Office'   │   1   │  100  │
+│    6    │   'Twizzlers'   │  'Grocery'  │   1   │  50   │
+│    7    │     'Coke'      │  'Grocery'  │   2   │ 2200  │
+│    8    │    'Hammer'     │ 'Hardware'  │ 9.99  │  15   │
+│    9    │  'Screwdriver'  │ 'Hardware'  │ 5.99  │  10   │
+│   10    │    'Ballcap'    │ 'Clothing'  │  12   │ 1000  │
+└─────────┴─────────────────┴─────────────┴───────┴───────┘
+? Enter item name or QUIT to exit coke
+? How many do you wish to purchase? 2000
+
+ You have purchased 2000 Coke for a total of $4000.00
+┌─────────┬─────────────────┬─────────────┬───────┬───────┐
+│ (index) │     product     │ department  │ price │ stock │
+├─────────┼─────────────────┼─────────────┼───────┼───────┤
+│    0    │    'Shampoo'    │ 'Hair Care' │ 10.49 │  10   │
+│    1    │  'Conditioner'  │ 'Hair Care' │ 12.95 │   5   │
+│    2    │     'Dirt'      │  'Garden'   │   8   │  12   │
+│    3    │    'Shovel'     │  'Garden'   │ 24.99 │   3   │
+│    4    │ 'Post-it Notes' │  'Office'   │   5   │   5   │
+│    5    │  'Paper Clips'  │  'Office'   │   1   │  100  │
+│    6    │   'Twizzlers'   │  'Grocery'  │   1   │  50   │
+│    7    │     'Coke'      │  'Grocery'  │   2   │  200  │
+│    8    │    'Hammer'     │ 'Hardware'  │ 9.99  │  15   │
+│    9    │  'Screwdriver'  │ 'Hardware'  │ 5.99  │  10   │
+│   10    │    'Ballcap'    │ 'Clothing'  │  12   │ 1000  │
+└─────────┴─────────────────┴─────────────┴───────┴───────┘
+? Enter item name or QUIT to exit Ballcap
+? How many do you wish to purchase? 10
+
+ You have purchased 10 Ballcap for a total of $120.00
+┌─────────┬─────────────────┬─────────────┬───────┬───────┐
+│ (index) │     product     │ department  │ price │ stock │
+├─────────┼─────────────────┼─────────────┼───────┼───────┤
+│    0    │    'Shampoo'    │ 'Hair Care' │ 10.49 │  10   │
+│    1    │  'Conditioner'  │ 'Hair Care' │ 12.95 │   5   │
+│    2    │     'Dirt'      │  'Garden'   │   8   │  12   │
+│    3    │    'Shovel'     │  'Garden'   │ 24.99 │   3   │
+│    4    │ 'Post-it Notes' │  'Office'   │   5   │   5   │
+│    5    │  'Paper Clips'  │  'Office'   │   1   │  100  │
+│    6    │   'Twizzlers'   │  'Grocery'  │   1   │  50   │
+│    7    │     'Coke'      │  'Grocery'  │   2   │  200  │
+│    8    │    'Hammer'     │ 'Hardware'  │ 9.99  │  15   │
+│    9    │  'Screwdriver'  │ 'Hardware'  │ 5.99  │  10   │
+│   10    │    'Ballcap'    │ 'Clothing'  │  12   │  990  │
+└─────────┴─────────────────┴─────────────┴───────┴───────┘
+? Enter item name or QUIT to exit QUIT
+ > QUITTER
+magnus:bamazon alex$ node bamazonSupervisor.js 
+connected as id 56
+┌─────────┬─────────────────┬─────────────┬───────┬───────┐
+│ (index) │     product     │ department  │ price │ stock │
+├─────────┼─────────────────┼─────────────┼───────┼───────┤
+│    0    │    'Shampoo'    │ 'Hair Care' │ 10.49 │  10   │
+│    1    │  'Conditioner'  │ 'Hair Care' │ 12.95 │   5   │
+│    2    │     'Dirt'      │  'Garden'   │   8   │  12   │
+│    3    │    'Shovel'     │  'Garden'   │ 24.99 │   3   │
+│    4    │ 'Post-it Notes' │  'Office'   │   5   │   5   │
+│    5    │  'Paper Clips'  │  'Office'   │   1   │  100  │
+│    6    │   'Twizzlers'   │  'Grocery'  │   1   │  50   │
+│    7    │     'Coke'      │  'Grocery'  │   2   │  200  │
+│    8    │    'Hammer'     │ 'Hardware'  │ 9.99  │  15   │
+│    9    │  'Screwdriver'  │ 'Hardware'  │ 5.99  │  10   │
+│   10    │    'Ballcap'    │ 'Clothing'  │  12   │  990  │
+└─────────┴─────────────────┴─────────────┴───────┴───────┘
+? (S)ales by Department
+  (A)dd new Department
+  QUIT to exit s
+┌─────────┬───────────────┬─────────────┬───────┬────────────────┬────────┐
+│ (index) │ department_id │ department  │ sales │ overhead_costs │ profit │
+├─────────┼───────────────┼─────────────┼───────┼────────────────┼────────┤
+│    0    │       1       │ 'Hair Care' │   0   │     10000      │ -10000 │
+│    1    │       2       │  'Garden'   │   0   │      5000      │ -5000  │
+│    2    │       3       │  'Office'   │   0   │      1200      │ -1200  │
+│    3    │       4       │  'Grocery'  │ 4000  │      900       │  3100  │
+│    4    │       5       │ 'Hardware'  │   0   │      500       │  -500  │
+│    5    │       6       │ 'Clothing'  │  120  │       0        │  120   │
+└─────────┴───────────────┴─────────────┴───────┴────────────────┴────────┘
+? (S)ales by Department
+  (A)dd new Department
+  QUIT to exit 
+magnus:bamazon alex$ 
